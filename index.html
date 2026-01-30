@@ -346,6 +346,7 @@
 
     <script>
       (function(d,t) {
+        // IMPORTANT: This baseUrl points to where Chatwoot is INSTALLED, NOT where your website is.
         var BASE_URL="https://chatwoot.panel.merchility.com";
         var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=BASE_URL+"/packs/js/sdk.js";
@@ -357,7 +358,7 @@
             websiteToken: 'C1tVBhVgRsGA1vrRwJqEb7Sz',
             baseUrl: BASE_URL
           }, {
-            hideMessageBubble: true // This hides the default launcher
+            hideMessageBubble: true // This hides the default launcher so you can use your custom purple button
           });
         }
       })(document,"script");
