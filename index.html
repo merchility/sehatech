@@ -10,7 +10,6 @@
         body { font-family: 'Inter', sans-serif; }
         .rtl { direction: rtl; }
         .ltr { direction: ltr; }
-        /* Hide scrollbar for clean look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -19,7 +18,6 @@
         .transition-all { transition: all 0.3s ease; }
         .medical-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
         
-        /* Floating Button Animations */
         .float-btn { transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .float-btn:hover { transform: scale(1.1) translateY(-2px); }
     </style>
@@ -70,7 +68,6 @@
         </nav>
 
         <main id="main-content" class="flex-grow">
-            
             <div id="home-view" class="transition-opacity duration-300">
                 <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                     <div class="text-center max-w-4xl mx-auto">
@@ -359,6 +356,8 @@
           window.chatwootSDK.run({
             websiteToken: 'C1tVBhVgRsGA1vrRwJqEb7Sz',
             baseUrl: BASE_URL
+          }, {
+            hideMessageBubble: true // This hides the default launcher
           });
         }
       })(document,"script");
