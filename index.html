@@ -1,386 +1,258 @@
+Here's the complete HTML code with the Chatwoot integration:
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SehaTech - نظام إدارة المرضى الرقمي</title>
+    <title>SehaTech - نظام إدارة المرضى الرقمي | وفر 15 ساعة أسبوعياً</title>
+    <meta name="description" content="نظام رقمي شامل لإدارة المواعيد، السجلات الطبية، والتذكيرات التلقائية. وفر 15 ساعة أسبوعياً وقلل عدم الحضور بنسبة 40% مع SehaTech">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="SehaTech - Digital Patient Management System">
+    <meta property="og:description" content="Save 15 hours weekly and reduce no-shows by 40%">
+    <meta property="og:type" content="website">
+    
+    <link rel="canonical" href="https://sehatech.com">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .rtl {
-            direction: rtl;
-        }
-        .ltr {
-            direction: ltr;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-        .transition-all {
-            transition: all 0.3s ease;
-        }
-        .medical-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .float-btn {
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .float-btn:hover {
-            transform: scale(1.1) translateY(-2px);
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .medical-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .float-btn { transition: transform 0.2s; }
+        .float-btn:hover { transform: scale(1.1) translateY(-2px); }
+        .fade-in-up { animation: fadeInUp 0.6s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .pulse-ring { animation: pulse-ring 2s infinite; }
+        @keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+        .spinner { border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; width: 20px; height: 20px; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
+
+    <!-- Chatwoot Widget Script -->
+    <script>
+      (function(d,t) {
+        var BASE_URL="https://chatwoot.panel.merchility.com";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'c1HDXvczYmmBJcrH4eAQJEtU',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
+    <!-- End Chatwoot Widget Script -->
+
 </head>
 <body class="bg-white text-slate-900">
-    <div id="app" class="min-h-screen transition-all flex flex-col">
-        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="setView('home')">
-                        <div class="w-10 h-10 medical-gradient rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                        </div>
-                        <span class="font-bold text-xl tracking-tight text-slate-900">SehaTech</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <div class="w-10 h-10 medical-gradient rounded-lg flex items-center justify-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                     </div>
-                    <div class="hidden md:flex items-center gap-8">
-                        <button onclick="setView('home')" id="nav-home" class="text-slate-900 font-medium text-sm transition-colors">الرئيسية</button>
-                        <a href="#features" id="nav-features" class="text-slate-500 hover:text-slate-900 transition-colors font-medium text-sm">المميزات</a>
-                        <a href="#services" id="nav-services" class="text-slate-500 hover:text-slate-900 transition-colors font-medium text-sm">الخدمات</a>
-                        <button onclick="setView('contact')" id="nav-contact" class="text-slate-500 hover:text-slate-900 transition-colors font-medium text-sm">تواصل معنا</button>
-                        <div class="flex items-center border border-slate-200 rounded-full px-1 p-1">
-                            <button onclick="setLang('en')" class="lang-btn en px-3 py-1 rounded-full text-xs font-bold uppercase transition-all text-slate-400">EN</button>
-                            <button onclick="setLang('ar')" class="lang-btn ar px-3 py-1 rounded-full text-xs font-bold uppercase transition-all bg-gradient-to-r from-purple-600 to-purple-700 text-white">AR</button>
-                            <button onclick="setLang('fr')" class="lang-btn fr px-3 py-1 rounded-full text-xs font-bold uppercase transition-all text-slate-400">FR</button>
-                        </div>
-                        <button onclick="setView('contact')" class="medical-gradient text-white px-5 py-2 rounded-full font-medium text-sm hover:opacity-90 transition-all shadow-md hover:shadow-lg" id="nav-cta">
-                            احجز عرضاً توضيحياً
-                        </button>
+                    <span class="font-bold text-xl tracking-tight">SehaTech</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <button class="medical-gradient text-white px-5 py-2 rounded-full font-medium text-sm hover:opacity-90" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">احجز عرضاً توضيحياً</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold mb-8">🏥 نظام صحي متكامل</div>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">وفّر 15 ساعة أسبوعياً وقلل عدم الحضور بنسبة 40%</h1>
+            <p class="text-lg text-slate-500 mb-10 max-w-2xl mx-auto">نظام رقمي شامل لإدارة المواعيد، السجلات الطبية، التذكيرات التلقائية عبر واتساب</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 medical-gradient text-white rounded-full font-semibold shadow-lg">احجز عرضاً مجانياً</button>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600">500+</div>
+                    <div class="text-sm text-slate-500 mt-1">عيادة تستخدم النظام</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600">40%</div>
+                    <div class="text-sm text-slate-500 mt-1">تقليل عدم الحضور</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600">15hr</div>
+                    <div class="text-sm text-slate-500 mt-1">توفير أسبوعي</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-gradient-to-br from-purple-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">حلول رقمية متكاملة</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">اختر النموذج الذي يناسب عيادتك</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-3xl p-8 border-2 border-purple-400 shadow-xl relative">
+                    <div class="absolute top-0 right-0 bg-purple-600 text-white px-4 py-1 text-xs font-bold rounded-bl-2xl">الأكثر شعبية</div>
+                    <h3 class="text-2xl font-bold mt-4 mb-2">النظام السحابي المُدار</h3>
+                    <p class="text-purple-600 text-lg font-bold mb-4">من 299 ر.س شهرياً</p>
+                    <p class="text-slate-600 mb-6">نظام جاهز للاستخدام فوراً مع استضافة وحماية كاملة</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-2">
+                            <svg class="text-green-600 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span>تذكيرات واتساب تلقائية (1000 رسالة شهرياً)</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="text-green-600 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span>سجلات طبية إلكترونية مشفرة</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="text-green-600 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span>دعم فني 24/7</span>
+                        </li>
+                    </ul>
+                    <div class="bg-purple-50 rounded-xl p-4 mb-6">
+                        <p class="text-sm text-purple-900 font-semibold">✨ تجربة مجانية 14 يوم</p>
                     </div>
-                    <div class="md:hidden flex items-center gap-4">
-                        <button onclick="toggleMenu()" class="text-slate-600 p-2">
-                            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                        </button>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="w-full py-4 medical-gradient text-white rounded-xl font-bold">ابدأ الآن</button>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border-2 border-slate-200 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-2">النشر على خادمك الخاص</h3>
+                    <p class="text-slate-600 text-lg font-bold mb-4">من 4,999 ر.س (دفعة واحدة)</p>
+                    <p class="text-slate-600 mb-6">تثبيت كامل على خادمك مع تحكم كامل</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-2">
+                            <svg class="text-slate-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span>تحكم كامل في البيانات</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="text-slate-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span>امتثال HIPAA/GDPR</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="text-slate-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span>دعم فني 6 أشهر</span>
+                        </li>
+                    </ul>
+                    <div class="bg-slate-50 rounded-xl p-4 mb-6">
+                        <p class="text-sm text-slate-700">للمستشفيات والمؤسسات الكبرى</p>
+                    </div>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="w-full py-4 border-2 border-slate-300 text-slate-700 rounded-xl font-bold hover:bg-slate-50">احجز استشارة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">تواصل معنا</h2>
+            <p class="text-slate-500">نحن هنا لمساعدتك</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center text-purple-600">✉️</div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-bold mb-1">البريد الإلكتروني</p>
+                            <a href="mailto:contact@sehatech.com" class="text-slate-900 font-medium hover:text-purple-600">contact@sehatech.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center text-purple-600">📱</div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-bold mb-1">هاتف</p>
+                            <a href="tel:+966501234567" class="text-slate-900 font-medium hover:text-purple-600" dir="ltr">+966 50 123 4567</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg px-4 py-6 space-y-4 absolute w-full left-0 top-20">
-                <button onclick="setView('home'); toggleMenu();" class="block text-slate-600 font-medium w-full text-right hover:text-purple-600" id="m-nav-home">الرئيسية</button>
-                <a href="#features" class="block text-slate-600 font-medium hover:text-purple-600" onclick="toggleMenu()" id="m-nav-features">المميزات</a>
-                <a href="#services" class="block text-slate-600 font-medium hover:text-purple-600" onclick="toggleMenu()" id="m-nav-services">الخدمات</a>
-                <button onclick="setView('contact'); toggleMenu();" class="block text-slate-600 font-medium w-full text-right hover:text-purple-600" id="m-nav-contact">تواصل معنا</button>
+
+            <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl border border-purple-100">
+                <form id="contact-form" class="space-y-6" onsubmit="handleSubmit(event)">
+                    <input type="text" name="name" required placeholder="الاسم الكامل" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none">
+                    <input type="email" name="email" required placeholder="البريد الإلكتروني" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none">
+                    <textarea name="message" required rows="4" placeholder="الرسالة" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none resize-none"></textarea>
+                    <button type="submit" class="w-full py-4 medical-gradient text-white rounded-xl font-bold hover:opacity-90 flex items-center justify-center gap-2">
+                        <span id="submit-text">إرسال الرسالة</span>
+                        <span id="submit-spinner" class="spinner hidden"></span>
+                    </button>
+                </form>
             </div>
-        </nav>
-
-        <main id="main-content" class="flex-grow">
-            <div id="home-view" class="transition-opacity duration-300">
-                <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                    <div class="text-center max-w-4xl mx-auto">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold mb-8 uppercase tracking-wide" id="hero-badge">
-                            🏥 نظام صحي متكامل
-                        </div>
-                        <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-8 tracking-tight" id="hero-title">
-                            أتمتة متابعة المرضى وإدارة العيادات رقمياً
-                        </h1>
-                        <p class="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto font-light" id="hero-subtitle">
-                            نظام رقمي شامل لإدارة المواعيد، السجلات الطبية، التذكيرات التلقائية، ومتابعة المرضى عبر واتساب والمنصات الرقمية.
-                        </p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="w-full sm:w-auto px-8 py-4 medical-gradient text-white rounded-full font-medium hover:opacity-90 transition-all shadow-lg hover:shadow-purple-200" id="hero-cta-primary">عرض الحلول</button>
-                            <button onclick="setView('contact')" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-600 border border-slate-200 rounded-full font-medium hover:border-purple-400 transition-all" id="hero-cta-secondary">تواصل معنا</button>
-                        </div>
-                    </div>
-
-                    <div class="mt-20 border-t border-slate-100 pt-16 grid grid-cols-2 md:grid-cols-4 gap-12 text-center opacity-80" id="features">
-                        <div class="flex flex-col items-center gap-4 hover:transform hover:-translate-y-1 transition-transform duration-300">
-                            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <span class="font-medium text-slate-700 text-sm" id="feat-1">إدارة المرضى</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-4 hover:transform hover:-translate-y-1 transition-transform duration-300">
-                            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                            </div>
-                            <span class="font-medium text-slate-700 text-sm" id="feat-2">حجز المواعيد</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-4 hover:transform hover:-translate-y-1 transition-transform duration-300">
-                            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            </div>
-                            <span class="font-medium text-slate-700 text-sm" id="feat-3">تذكير عبر واتساب</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-4 hover:transform hover:-translate-y-1 transition-transform duration-300">
-                            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-                            </div>
-                            <span class="font-medium text-slate-700 text-sm" id="feat-4">السجلات الإلكترونية</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="services" class="py-24 bg-gradient-to-br from-purple-50 to-white border-t border-slate-100">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="mb-16 text-center">
-                            <h2 class="text-3xl font-bold text-slate-900 mb-4" id="serv-title">حلول رقمية متكاملة للمؤسسات الصحية</h2>
-                            <p class="text-slate-500 max-w-2xl mx-auto font-light text-lg" id="serv-subtitle">اختر النموذج الذي يناسب حجم عيادتك أو مستشفاك</p>
-                        </div>
-
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <div class="bg-white rounded-3xl p-8 border-2 border-purple-200 hover:border-purple-500 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group">
-                                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div class="w-12 h-12 medical-gradient rounded-xl flex items-center justify-center text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-2xl font-bold text-slate-900" id="serv-m-title">النظام السحابي المُدار</h3>
-                                        <p class="text-purple-600 text-sm font-bold mt-1" id="serv-m-price">اشتراك شهري</p>
-                                    </div>
-                                </div>
-                                <p class="text-slate-600 my-6 text-base leading-relaxed" id="serv-m-desc">نظام جاهز للاستخدام فوراً، نحن نستضيف ونحدّث ونحمي جميع بياناتك الطبية بأعلى معايير الأمان.</p>
-                                <ul class="space-y-4 mb-8 text-sm text-slate-700" id="serv-m-list">
-                                    <li class="flex items-start gap-3">
-                                        <svg class="text-green-600 mt-1 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>إدارة كاملة للمواعيد والمرضى</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg class="text-green-600 mt-1 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>تذكيرات تلقائية عبر واتساب</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg class="text-green-600 mt-1 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>سجلات طبية إلكترونية مشفرة</span>
-                                    </li>
-                                </ul>
-                                <button onclick="setView('contact')" class="w-full py-4 medical-gradient text-white rounded-xl font-bold text-base hover:opacity-90 transition-all shadow-md" id="serv-m-cta">ابدأ الآن</button>
-                            </div>
-
-                            <div class="bg-white rounded-3xl p-8 border-2 border-slate-200 hover:border-slate-400 transition-all duration-300 shadow-lg hover:shadow-xl">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-2xl font-bold text-slate-900" id="serv-s-title">النشر على خادمك الخاص</h3>
-                                        <p class="text-slate-600 text-sm font-bold mt-1" id="serv-s-price">دفعة لمرة واحدة</p>
-                                    </div>
-                                </div>
-                                <p class="text-slate-600 my-6 text-base leading-relaxed" id="serv-s-desc">نقوم بتثبيت النظام على خادمك الخاص (VPS) مع التحكم الكامل والامتثال لمعايير خصوصية البيانات الطبية.</p>
-                                <ul class="space-y-4 mb-8 text-sm text-slate-700" id="serv-s-list">
-                                    <li class="flex items-start gap-3">
-                                        <svg class="text-slate-500 mt-1 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>تثبيت كامل على خادمك</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg class="text-slate-500 mt-1 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>تحكم كامل في البيانات</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <svg class="text-slate-500 mt-1 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>امتثال كامل لمعايير HIPAA/GDPR</span>
-                                    </li>
-                                </ul>
-                                <button onclick="setView('contact')" class="w-full py-4 bg-white border-2 border-slate-300 text-slate-700 rounded-xl font-bold text-base hover:bg-slate-50 transition-all" id="serv-s-cta">احجز استشارة</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div id="contact-view" class="hidden opacity-0 transition-opacity duration-300">
-                <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-[80vh]">
-                    <div class="grid md:grid-cols-2 gap-16">
-                        <div class="animate-fade-in-up">
-                            <h1 class="text-4xl font-bold text-slate-900 mb-4" id="con-title">تواصل معنا</h1>
-                            <p class="text-slate-500 mb-12 text-lg font-light" id="con-subtitle">هل تبحث عن حل رقمي لعيادتك أو مستشفاك؟ نحن هنا لمساعدتك.</p>
-                            
-                            <div class="space-y-8">
-                                <div class="flex items-start gap-4">
-                                    <div class="p-3 bg-purple-50 rounded-full text-purple-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-1">البريد الإلكتروني</h4>
-                                        <p class="text-slate-900 font-medium hover:text-purple-600 transition-colors cursor-pointer">info@healthtech.care</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-4">
-                                    <div class="p-3 bg-purple-50 rounded-full text-purple-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-1" id="con-phone-label">هاتف</h4>
-                                        <p class="text-slate-900 font-medium" dir="ltr">+966 50 123 4567</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl border border-purple-100 shadow-sm">
-                            <form id="contact-form" class="space-y-6" onsubmit="handleContact(event)">
-                                <div>
-                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" id="label-name">الاسم</label>
-                                    <input type="text" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" id="label-email">البريد الإلكتروني</label>
-                                    <input type="email" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" id="label-msg">الرسالة</label>
-                                    <textarea rows="4" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none"></textarea>
-                                </div>
-                                <button type="submit" class="w-full py-4 medical-gradient text-white rounded-xl font-bold text-base hover:opacity-90 transition-all shadow-md transform active:scale-95" id="btn-send">
-                                    إرسال الرسالة
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </main>
-
-        <div class="fixed bottom-6 left-6 z-40 flex flex-col gap-3">
-            <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="float-btn w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg hover:shadow-blue-200" title="Telegram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </a>
-            <a href="https://wa.me/966500000000" target="_blank" class="float-btn w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:shadow-green-200" title="WhatsApp">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            </a>
-            <button onclick="openChatwoot()" class="float-btn w-12 h-12 rounded-full medical-gradient text-white flex items-center justify-center shadow-lg hover:shadow-purple-200" title="Live Chat">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            </button>
         </div>
+    </section>
 
-        <footer class="bg-slate-50 border-t border-slate-200 py-12 mt-auto">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <p class="text-slate-400 text-sm">© 2026 SehaTech. All rights reserved.</p>
-            </div>
-        </footer>
+    <!-- Floating Buttons -->
+    <div class="fixed bottom-6 left-6 z-40 flex flex-col gap-3">
+        <a href="https://wa.me/966501234567" target="_blank" class="float-btn w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg" title="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400 text-sm">© 2026 SehaTech. All rights reserved</p>
+        </div>
+    </footer>
+
     <script>
-        // -- UI Logic --
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        function setView(viewName) {
-            const home = document.getElementById('home-view');
-            const contact = document.getElementById('contact-view');
-            
-            if(viewName === 'home') {
-                contact.classList.add('hidden');
-                contact.classList.remove('opacity-100');
-                home.classList.remove('hidden');
-                setTimeout(() => home.classList.add('opacity-100'), 10);
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            } else {
-                home.classList.add('hidden');
-                home.classList.remove('opacity-100');
-                contact.classList.remove('hidden');
-                setTimeout(() => contact.classList.add('opacity-100'), 10);
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            }
-        }
-
-        function handleContact(e) {
+        async function handleSubmit(e) {
             e.preventDefault();
-            const btn = document.getElementById('btn-send');
-            const originalText = btn.innerText;
+            const btn = e.target.querySelector('button[type="submit"]');
+            const text = document.getElementById('submit-text');
+            const spinner = document.getElementById('submit-spinner');
+            const form = e.target;
             
-            btn.innerText = 'جاري الإرسال...';
+            const data = new FormData(form);
+            
             btn.disabled = true;
-            btn.classList.add('opacity-75');
-
-            // Simulate API call
-            setTimeout(() => {
-                btn.innerText = 'تم الإرسال بنجاح!';
-                btn.classList.remove('medical-gradient');
-                btn.classList.add('bg-green-600');
+            text.textContent = 'جاري الإرسال...';
+            spinner.classList.remove('hidden');
+            
+            try {
+                // Replace with your actual email service
+                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    body: data,
+                    headers: {'Accept': 'application/json'}
+                });
                 
+                if (response.ok) {
+                    text.textContent = 'تم الإرسال بنجاح!';
+                    spinner.classList.add('hidden');
+                    form.reset();
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        text.textContent = 'إرسال الرسالة';
+                    }, 3000);
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (error) {
+                text.textContent = 'حدث خطأ';
+                spinner.classList.add('hidden');
                 setTimeout(() => {
-                    btn.innerText = originalText;
                     btn.disabled = false;
-                    btn.classList.remove('opacity-75', 'bg-green-600');
-                    btn.classList.add('medical-gradient');
-                    e.target.reset();
+                    text.textContent = 'إرسال الرسالة';
                 }, 3000);
-            }, 1500);
-        }
-
-        function setLang(lang) {
-            const btns = document.querySelectorAll('.lang-btn');
-            btns.forEach(b => {
-                b.classList.remove('bg-gradient-to-r', 'from-purple-600', 'to-purple-700', 'text-white');
-                b.classList.add('text-slate-400');
-            });
-
-            const activeBtn = document.querySelector('.lang-btn.' + lang);
-            if(activeBtn) {
-                activeBtn.classList.add('bg-gradient-to-r', 'from-purple-600', 'to-purple-700', 'text-white');
-                activeBtn.classList.remove('text-slate-400');
-            }
-
-            const html = document.documentElement;
-            if(lang === 'ar') {
-                html.setAttribute('dir', 'rtl');
-                html.setAttribute('lang', 'ar');
-            } else {
-                html.setAttribute('dir', 'ltr');
-                html.setAttribute('lang', lang);
-            }
-
-            // Update Chatwoot Locale if loaded
-            if (window.$chatwoot) {
-                window.$chatwoot.setLocale(lang);
             }
         }
-    </script>
-
-    <script>
-        function openChatwoot() {
-            if (window.$chatwoot) {
-                window.$chatwoot.toggle();
-            } else {
-                console.warn("Chatwoot not ready yet");
-            }
-        }
-    </script>
-
-    <script>
-        (function(d,t) {
-            var BASE_URL = "https://chatwoot.panel.merchility.com";
-            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            g.src = BASE_URL + "/packs/js/sdk.js";
-            g.defer = true;
-            g.async = true;
-            s.parentNode.insertBefore(g,s);
-            g.onload = function() {
-                window.chatwootSDK.run({
-                    websiteToken: "9FeVduBaXthhGsSopNALF3SY",
-                    baseUrl: BASE_URL
-                });
-                window.addEventListener("chatwoot:ready", function () {
-                    window.$chatwoot.hide(); // نخفي الزر الافتراضي
-                    window.$chatwoot.setLocale(document.documentElement.lang || "ar");
-                    console.log("Chatwoot ready");
-                });
-            }
-        })(document,"script");
     </script>
 </body>
 </html>
